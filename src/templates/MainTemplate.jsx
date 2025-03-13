@@ -46,7 +46,6 @@ export default function MainTemplate() {
 
   const [showContent, setShowContent] = useState([]);
   const [page, setPage] = useState(0);
-  const [forceUpdate, setForceUpdate] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
@@ -68,21 +67,16 @@ export default function MainTemplate() {
   };
 
   useEffect(() => {
-    console.log('pathname 수정됨');
     setPage(() => 0);
     setShowContent([]);
-    setForceUpdate((prev) => !prev);
   }, [pathname]);
 
   useEffect(() => {
     setLoading(true);
-    console.log('loading useEffect');
     getContent(page);
   }, [page]);
 
   useEffect(() => {
-    console.log('page useEffect');
-
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !loading) {
