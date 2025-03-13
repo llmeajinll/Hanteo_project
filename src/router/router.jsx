@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainLayout } from '../layout';
 import {
   ChartTemplate,
@@ -16,6 +16,7 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <div>error</div>,
     children: [
+      { path: '/', element: <Navigate to='/chart' /> },
       { path: '/chart', element: <ChartTemplate /> },
       { path: '/whook', element: <WhookTemplate /> },
       { path: '/charge', element: <ChargeTemplate /> },
