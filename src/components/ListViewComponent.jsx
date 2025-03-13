@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Marquee from 'react-fast-marquee';
 
 const ListContent = styled.button`
   color: ${(props) => (props.status === 'true' ? 'white' : 'black')};
@@ -23,6 +22,7 @@ const ScrollContainer = styled.div`
   overflow-x: auto;
   align-items: center;
   top: 0;
+  z-index: 99;
 
   scrollbar-width: none;
   -ms-overflow-style: none;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -13,6 +13,7 @@ const WrapSlider = styled.div`
   margin: 49px 0 0;
   padding: 15px 0 0;
   overflow: hidden;
+  z-index: 0;
 `;
 
 const SliderContent = styled.div`

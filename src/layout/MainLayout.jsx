@@ -21,7 +21,7 @@ const WrapContent = styled.div`
   display: flex;
   border-top: 0.5px solid lightgray;
   flex-direction: column;
-  background-color: beige;
+  background-color: #eee;
   flex: 1 1 auto;
   overflow-y: auto;
 `;
@@ -32,11 +32,9 @@ export default function MainLayout() {
 
   useEffect(() => {
     const contentHeight = contentRef.current.offsetHeight;
-    console.log(contentHeight - 145);
+    // console.log(contentHeight - 145);
     setContentHeight(contentHeight - 145);
   }, []);
-
-  console.log(contentHeight);
 
   return (
     <WrapMainLayout>
@@ -46,8 +44,8 @@ export default function MainLayout() {
 
       <WrapContent ref={contentRef}>
         <Outlet height={contentHeight} />
-        <FooterComponent />
       </WrapContent>
+      <FooterComponent />
     </WrapMainLayout>
   );
 }
