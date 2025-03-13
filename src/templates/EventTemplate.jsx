@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
 import {
   ContentComponent,
@@ -30,9 +29,11 @@ export default function EventTemplate() {
     const { content } = await getEventContent(num);
     console.log(content);
     setShowContent((prev) => [...prev, ...content]);
+    setLoading(false);
   };
 
   useEffect(() => {
+    setLoading(true);
     getContent(page);
   }, [page]);
 

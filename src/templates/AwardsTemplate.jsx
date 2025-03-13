@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
 import {
   ContentComponent,
@@ -8,14 +7,6 @@ import {
   CurationTitle,
 } from '../components';
 import { getAwardsContent } from '../api/contentApi';
-
-const Curation = styled.div`
-  display: flex;
-  height: 20px;
-  padding: 15px;
-  align-items: center;
-  font-size: 18px;
-`;
 
 export default function AwardsTemplate() {
   const [showContent, setShowContent] = useState([]);
@@ -34,13 +25,13 @@ export default function AwardsTemplate() {
   });
 
   const getContent = async (num) => {
-    console.log(page);
     const { content } = await getAwardsContent(num);
-    console.log(content);
     setShowContent((prev) => [...prev, ...content]);
+    setLoading(false);
   };
 
   useEffect(() => {
+    setLoading(true);
     getContent(page);
   }, [page]);
 

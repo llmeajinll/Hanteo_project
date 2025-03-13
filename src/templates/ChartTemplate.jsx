@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useOutletContext } from 'react-router-dom';
-import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
 import {
   ContentComponent,
@@ -26,17 +25,20 @@ export default function ChartTemplate() {
   });
 
   const getContent = async (num) => {
-    console.log(page);
     const { content } = await getChartContent(num);
-    console.log(content);
     setShowContent((prev) => [...prev, ...content]);
+    setLoading(false);
   };
 
   useEffect(() => {
+    setLoading(true);
     getContent(page);
   }, [page]);
 
   useEffect(() => {
+    console.log(loading);
+    if (loading) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !loading) {
@@ -59,11 +61,9 @@ export default function ChartTemplate() {
           showContent.map((val, idx) => (
             <ContentComponent key={idx} value={val} />
           ))}
-        <div
-          ref={observerRef}
-          style={{ height: '20px', background: 'transparent' }}
-        />
-        {loading && <p>🔄 로딩 중...</p>}
+        <div ref={observerRef} style={{ background: 'transparent' }}>
+          {loading && <p style={{ margin: 0 }}>🔄 로딩 중...</p>}
+        </div>
       </WrapMainContent>
     </div>
   );

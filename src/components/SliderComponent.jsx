@@ -22,7 +22,7 @@ const SliderContent = styled.div`
   border: 1px solid lightgray;
   border-radius: 10px;
   background-image: url(${(props) => props.backgroundimage || null});
-  background-size: 105%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;

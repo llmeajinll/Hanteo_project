@@ -1,12 +1,8 @@
 .slick-dots {
-  height: 28px;
-  /* color: lightgray; */
+  height: 30px;
 }
 
 .slick-dots li {
-  /* color: white;  */
-  /* 점 색상을 사진과 조화롭게 변경 */
-  /* 점 크기 조절 */
   width: 10px;
   height: 10px;
   font-size: 0px;
@@ -15,9 +11,6 @@
 }
 
 .slick-dots li button {
-  /* color: white;  */
-  /* 점 색상을 사진과 조화롭게 변경 */
-  /* 점 크기 조절 */
   width: 0px;
   height: 0px;
   font-size: 0px;
