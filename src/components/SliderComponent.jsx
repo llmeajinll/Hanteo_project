@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Slider from 'react-slick';
+// react-slick의 기본 스타일링
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import '../style/slick-style.css';
-// import { motion, useAnimation } from 'framer-motion';
+import '../style/slick-style.css'; // Slider css 커스텀
 
 const WrapSlider = styled.div`
   box-sizing: border-box;
@@ -29,15 +29,16 @@ const SliderContent = styled.div`
 `;
 
 export default function SliderComponent() {
+  // Slider 기초 세팅
   let settings = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '20px',
+    arrows: false, // 화살표 유무
+    dots: true, // 점 유무
+    infinite: true, // 무한 루프 유무
+    speed: 500, // 애니메이션 속도
+    slidesToShow: 1, // 한번에 보일 슬라이드 수
+    slidesToScroll: 1, // 한번에 넘길 슬라이드 수
+    centerMode: true, // 슬라이드 중앙 정렬
+    centerPadding: '20px', // 슬라이드의 양옆의 패딩
   };
 
   const banner = [

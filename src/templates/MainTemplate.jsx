@@ -50,11 +50,11 @@ export default function MainTemplate() {
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
 
+  // 현재 라우터에 따라 슬라이드로 이동하는 카테고리가 다름
   const handlers = useSwipeable({
-    onSwipedLeft: () => navigate(router[pathname].left),
-    onSwipedRight: () => navigate(router[pathname].right),
-    preventScrollOnSwipe: true,
-    trackMouse: true,
+    onSwipedLeft: () => navigate(router[pathname].left), // 오른쪽에서 왼쪽으로 슬라이드 시 카테고리 이동
+    onSwipedRight: () => navigate(router[pathname].right), // 왼쪽에서 오른쪽으로 슬라이드 시 카테고리 이동
+    preventScrollOnSwipe: true, // 스크롤 방지
   });
 
   const getContent = async (num) => {
