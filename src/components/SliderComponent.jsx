@@ -22,8 +22,9 @@ const SliderContent = styled.div`
   border: 1px solid lightgray;
   border-radius: 10px;
   background-image: url(${(props) => props.backgroundimage || null});
-  background-size: 100%;
+  background-size: 105%;
   background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
 `;
 
@@ -40,9 +41,9 @@ export default function SliderComponent() {
   };
 
   const banner = [
-    { img: 'src/assets/Banner1.png', link: 'https://www.naver.com/' },
-    { img: 'src/assets/Banner2.png', link: 'https://www.daum.net/' },
-    { img: 'src/assets/Banner3.png', link: 'https://www.google.co.kr/?hl=ko' },
+    { img: '/images/Banner1.png', link: 'https://www.naver.com/' },
+    { img: '/images/Banner2.png', link: 'https://www.daum.net/' },
+    { img: '/images/Banner3.png', link: 'https://www.google.co.kr/?hl=ko' },
   ];
 
   return (
