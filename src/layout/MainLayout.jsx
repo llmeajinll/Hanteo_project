@@ -19,6 +19,7 @@ const WrapMainLayout = styled.div`
 
 const WrapContent = styled.div`
   display: flex;
+  border-top: 0.5px solid lightgray;
   flex-direction: column;
   background-color: beige;
   flex: 1 1 auto;

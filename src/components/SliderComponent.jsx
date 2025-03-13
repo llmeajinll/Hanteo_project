@@ -20,7 +20,7 @@ const SliderContent = styled.div`
   height: 175px;
   border: 1px solid lightgray;
   border-radius: 10px;
-  background-image: url(${(props) => props.backgroundImage || null});
+  background-image: url(${(props) => props.backgroundimage || null});
   background-size: 100%;
   background-position: center;
   cursor: pointer;
@@ -50,7 +50,7 @@ export default function SliderComponent() {
         {banner.map((val, idx) => (
           <SliderContent
             key={idx}
-            backgroundImage={val.img}
+            backgroundimage={val.img}
             onClick={() => window.open(val.link, '_blank')}
           />
         ))}
