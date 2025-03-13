@@ -26,8 +26,10 @@ export default function NewsTemplate() {
 
   const getContent = async (num) => {
     const { content } = await getNewsContent(num);
-    setShowContent((prev) => [...prev, ...content]);
-    setLoading(false);
+    if (content.length > 0) {
+      setShowContent((prev) => [...prev, ...content]);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -61,7 +63,6 @@ export default function NewsTemplate() {
           ref={observerRef}
           style={{ height: '20px', background: 'transparent' }}
         />
-        {loading && <p>🔄 로딩 중...</p>}
       </WrapMainContent>
     </div>
   );

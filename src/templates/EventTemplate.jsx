@@ -25,11 +25,11 @@ export default function EventTemplate() {
   });
 
   const getContent = async (num) => {
-    console.log(page);
     const { content } = await getEventContent(num);
-    console.log(content);
-    setShowContent((prev) => [...prev, ...content]);
-    setLoading(false);
+    if (content.length > 0) {
+      setShowContent((prev) => [...prev, ...content]);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -65,7 +65,6 @@ export default function EventTemplate() {
           ref={observerRef}
           style={{ height: '20px', background: 'transparent' }}
         />
-        {loading && <p>🔄 로딩 중...</p>}
       </WrapMainContent>
     </div>
   );

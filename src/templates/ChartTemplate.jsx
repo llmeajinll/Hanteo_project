@@ -26,8 +26,10 @@ export default function ChartTemplate() {
 
   const getContent = async (num) => {
     const { content } = await getChartContent(num);
-    setShowContent((prev) => [...prev, ...content]);
-    setLoading(false);
+    if (content.length > 0) {
+      setShowContent((prev) => [...prev, ...content]);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -62,7 +64,6 @@ export default function ChartTemplate() {
             <ContentComponent key={idx} value={val} />
           ))}
         <div ref={observerRef} style={{ background: 'transparent' }}>
-          {loading && <p style={{ margin: 0 }}>🔄 로딩 중...</p>}
         </div>
       </WrapMainContent>
     </div>

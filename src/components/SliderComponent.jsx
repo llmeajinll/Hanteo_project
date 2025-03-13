@@ -41,9 +41,9 @@ export default function SliderComponent() {
   };
 
   const banner = [
-    { img: '/images/Banner1.png', link: 'https://www.naver.com/' },
-    { img: '/images/Banner2.png', link: 'https://www.daum.net/' },
-    { img: '/images/Banner3.png', link: 'https://www.google.co.kr/?hl=ko' },
+    { img: '/images/Banner1.webp', link: 'https://www.naver.com/' },
+    { img: '/images/Banner2.webp', link: 'https://www.daum.net/' },
+    { img: '/images/Banner3.webp', link: 'https://www.google.co.kr/?hl=ko' },
   ];
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Outlet } from 'react-router-dom';
 import {
@@ -21,29 +21,20 @@ const WrapContent = styled.div`
   display: flex;
   border-top: 0.5px solid lightgray;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #f1f1f1;
   flex: 1 1 auto;
   overflow-y: auto;
 `;
 
 export default function MainLayout() {
-  const contentRef = useRef();
-  const [contentHeight, setContentHeight] = useState(0);
-
-  useEffect(() => {
-    const contentHeight = contentRef.current.offsetHeight;
-    // console.log(contentHeight - 145);
-    setContentHeight(contentHeight - 145);
-  }, []);
-
   return (
     <WrapMainLayout>
       <ListViewComponent />
 
       <SliderComponent />
 
-      <WrapContent ref={contentRef}>
-        <Outlet height={contentHeight} />
+      <WrapContent>
+        <Outlet />
       </WrapContent>
       <FooterComponent />
     </WrapMainLayout>

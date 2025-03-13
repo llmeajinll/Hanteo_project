@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import {
   ContentComponent,
@@ -10,12 +10,10 @@ import { getWhosFanContent } from '../api/contentApi';
 
 export default function WhosfanTemplate() {
   const [showContent, setShowContent] = useState([]);
-
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const observerRef = useRef(null);
   const navigate = useNavigate();
-  const height = useOutletContext();
 
   const handlers = useSwipeable({
     onSwipedLeft: () => navigate('/awards'),
@@ -27,9 +25,10 @@ export default function WhosfanTemplate() {
   const getContent = async (num) => {
     console.log(page);
     const { content } = await getWhosFanContent(num);
-    console.log(content);
-    setShowContent((prev) => [...prev, ...content]);
-    setLoading(false);
+    if (content.length > 0) {
+      setShowContent((prev) => [...prev, ...content]);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export default function WhosfanTemplate() {
   return (
     <div {...handlers}>
       <CurationTitle>WhosFan</CurationTitle>
-      <WrapMainContent height={height}>
+      <WrapMainContent>
         {Array.isArray(showContent) &&
           showContent.map((val, idx) => (
             <ContentComponent key={idx} value={val} />
@@ -64,7 +63,6 @@ export default function WhosfanTemplate() {
           ref={observerRef}
           style={{ height: '20px', background: 'transparent' }}
         />
-        {loading && <p>🔄 로딩 중...</p>}
       </WrapMainContent>
     </div>
   );

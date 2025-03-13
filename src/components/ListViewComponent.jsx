@@ -41,6 +41,7 @@ export default function ListViewComponent() {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname;
+
   const list = [
     { name: '차트', location: '/chart' },
     { name: 'Whook', location: '/whook' },

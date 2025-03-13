@@ -26,8 +26,10 @@ export default function AwardsTemplate() {
 
   const getContent = async (num) => {
     const { content } = await getAwardsContent(num);
-    setShowContent((prev) => [...prev, ...content]);
-    setLoading(false);
+    if (content.length > 0) {
+      setShowContent((prev) => [...prev, ...content]);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -62,7 +64,6 @@ export default function AwardsTemplate() {
           ref={observerRef}
           style={{ height: '20px', background: 'transparent' }}
         />
-        {loading && <p>🔄 로딩 중...</p>}
       </WrapMainContent>
     </div>
   );
