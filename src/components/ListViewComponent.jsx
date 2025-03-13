@@ -15,7 +15,7 @@ const ListContent = styled.button`
 const ScrollContainer = styled.div`
   position: fixed;
   display: flex;
-  width: 100%;
+  width: 450px;
   white-space: nowrap;
   background-color: pink;
   padding: 10px 0;
