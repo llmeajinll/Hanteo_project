@@ -14,6 +14,7 @@ export const getChartContent = async (page) => {
 };
 
 export const getEventContent = async (page) => {
+  console.log(page);
   return await axios
     .get('/api/eventContent', { params: { page } })
     .then((res) => {
@@ -26,6 +27,7 @@ export const getEventContent = async (page) => {
 };
 
 export const getStoreContent = async (page) => {
+  console.log(page);
   return await axios
     .get('/api/storeContent', { params: { page } })
     .then((res) => {
@@ -38,6 +40,7 @@ export const getStoreContent = async (page) => {
 };
 
 export const getChargeContent = async (page) => {
+  console.log(page);
   return await axios
     .get('/api/chargeContent', { params: { page } })
     .then((res) => {
@@ -74,6 +77,7 @@ export const getAwardsContent = async (page) => {
 };
 
 export const getNewsContent = async (page) => {
+  console.log(page);
   return await axios
     .get('/api/newsContent', { params: { page } })
     .then((res) => {
@@ -86,6 +90,7 @@ export const getNewsContent = async (page) => {
 };
 
 export const getWhookContent = async (page) => {
+  console.log(page);
   return await axios
     .get('/api/whookContent', { params: { page } })
     .then((res) => {
