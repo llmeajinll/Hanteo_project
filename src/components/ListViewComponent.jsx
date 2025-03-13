@@ -6,14 +6,15 @@ import Marquee from 'react-fast-marquee';
 const ListContent = styled.button`
   color: ${(props) => (props.status === 'true' ? 'white' : 'black')};
   font-weight: 600;
-  font-size: 16px;
   padding: 5px 10px;
   border: none;
+  font-size: 16px;
   background-color: transparent;
   cursor: pointer;
 `;
 
 const ScrollContainer = styled.div`
+  position: fixed;
   display: flex;
   width: 100%;
   white-space: nowrap;
@@ -21,6 +22,7 @@ const ScrollContainer = styled.div`
   padding: 10px 0;
   overflow-x: auto;
   align-items: center;
+  top: 0;
 
   scrollbar-width: none;
   -ms-overflow-style: none;

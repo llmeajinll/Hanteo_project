@@ -1,0 +1,55 @@
+.slick-dots {
+  height: 28px;
+  /* color: lightgray; */
+}
+
+.slick-dots li {
+  /* color: white;  */
+  /* 점 색상을 사진과 조화롭게 변경 */
+  /* 점 크기 조절 */
+  width: 10px;
+  height: 10px;
+  font-size: 0px;
+  color: lightgray;
+  top: 0;
+}
+
+.slick-dots li button {
+  /* color: white;  */
+  /* 점 색상을 사진과 조화롭게 변경 */
+  /* 점 크기 조절 */
+  width: 0px;
+  height: 0px;
+  font-size: 0px;
+  color: lightgray;
+  top: 0;
+}
+
+.slick-dots li button:before {
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+  color: lightgray;
+}
+
+.slick-dots li.slick-active button:before {
+  color: hotpink;
+}
+
+.slick-slider {
+  display: flex;
+  height: 177px;
+}
+
+.slick-track {
+  display: flex;
+  height: 177px;
+}
+
+.slick-list {
+  padding: 0 20px;
+}
+.slick-slide {
+  width: 370px;
+  margin: 0 5px;
+}

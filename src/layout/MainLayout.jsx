@@ -1,52 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import {
   ListViewComponent,
   SliderComponent,
   FooterComponent,
 } from '../components';
-import { checkTitle } from '../util';
 
 const WrapMainLayout = styled.div`
   display: flex;
   width: 100%;
+  min-height: 100vh;
   min-width: 245px;
   max-width: 450px;
   margin: 0 auto;
   flex-direction: column;
-  flex-basis: 1 1 1 1;
 `;
 
-const WrapContentTemplate = styled.div`
+const WrapContent = styled.div`
   display: flex;
-  box-sizing: border-box;
-  height: calc(100% - 329px);
-  padding: 10px;
-  background-color: beige;
   flex-direction: column;
-  gap: 12px;
-`;
-
-const Curation = styled.div`
-  display: flex;
-  height: 20px;
-  align-items: center;
+  background-color: beige;
+  flex: 1 1 auto;
+  overflow-y: auto;
 `;
 
 export default function MainLayout() {
-  const path = useLocation().pathname;
+  const contentRef = useRef();
+  const [contentHeight, setContentHeight] = useState(0);
+
+  useEffect(() => {
+    const contentHeight = contentRef.current.offsetHeight;
+    console.log(contentHeight - 145);
+    setContentHeight(contentHeight - 145);
+  }, []);
+
+  console.log(contentHeight);
 
   return (
     <WrapMainLayout>
       <ListViewComponent />
+
       <SliderComponent />
-      <WrapContentTemplate>
-        <Curation>{checkTitle(path)}</Curation>
-        <Outlet />
-      </WrapContentTemplate>
-      <FooterComponent />
+
+      <WrapContent ref={contentRef}>
+        <Outlet height={contentHeight} />
+        <FooterComponent />
+      </WrapContent>
     </WrapMainLayout>
   );
 }

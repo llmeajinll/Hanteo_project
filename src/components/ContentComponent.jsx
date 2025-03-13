@@ -7,10 +7,10 @@ const WrapContent = styled.div`
   background-color: white;
 `;
 const ContentTitle = styled.div`
-  width: 60px;
+  width: 55px;
   height: 40px;
   border-radius: 4px;
-  background-color: gray;
+  background-color: lightgray;
 `;
 
 export default function ContentComponent() {
