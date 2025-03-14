@@ -41,6 +41,7 @@ return (
 무한 스크롤
 
 ```
+// 각 페이지당 데이터는 35개로 제한
 
 useEffect(() => {
   setLoading(true);
