@@ -55,6 +55,7 @@ export default function MainTemplate() {
     onSwipedLeft: () => navigate(router[pathname].left), // 오른쪽에서 왼쪽으로 슬라이드 시 카테고리 이동
     onSwipedRight: () => navigate(router[pathname].right), // 왼쪽에서 오른쪽으로 슬라이드 시 카테고리 이동
     preventScrollOnSwipe: true, // 스크롤 방지
+    trackMouse: true, // 마우스 이벤트 감지
   });
 
   const getContent = async (num) => {

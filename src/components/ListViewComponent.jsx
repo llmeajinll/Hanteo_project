@@ -32,11 +32,6 @@ const ScrollContainer = styled.div`
   }
 `;
 
-const ScrollContent = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
 export default function ListViewComponent() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -60,34 +55,37 @@ export default function ListViewComponent() {
 
     if (!scrollContainer) return;
 
+    // scrollWidth를 scrollContainer의 1/3로 설정하여 초기 위치 설정
     const scrollWidth = scrollContainer.scrollWidth / 3;
     scrollContainer.scrollLeft = scrollWidth;
 
     const handleScroll = () => {
+      // 왼쪽 끝에 도달하면 scrollLeft를 scrollWidth로 설정하여 순환
       if (scrollContainer.scrollLeft <= 0) {
         scrollContainer.scrollLeft = scrollWidth;
+        // 오른쪽 끝에 도달하면 scrollLeft를 scrollWidth * 2로 설정하여 순환
       } else if (scrollContainer.scrollLeft >= scrollWidth * 2) {
         scrollContainer.scrollLeft = scrollWidth;
       }
     };
-
+    // 이벤트 리스너 추가
     scrollContainer.addEventListener('scroll', handleScroll);
+    // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <ScrollContainer ref={scrollRef}>
-      <ScrollContent>
-        {[...list, ...list, ...list].map((val, idx) => (
-          <ListContent
-            key={idx}
-            status={path === val.location ? 'true' : 'false'}
-            onClick={() => navigate(val.location)}
-          >
-            {val.name}
-          </ListContent>
-        ))}
-      </ScrollContent>
+      {/* 스크롤이 양끝에 도착하면 다시 처음으로 돌아가게 하기 위해 카테고리 list를 3번 반복 */}
+      {[...list, ...list, ...list].map((val, idx) => (
+        <ListContent
+          key={idx}
+          status={path === val.location ? 'true' : 'false'}
+          onClick={() => navigate(val.location)}
+        >
+          {val.name}
+        </ListContent>
+      ))}
     </ScrollContainer>
   );
 }
